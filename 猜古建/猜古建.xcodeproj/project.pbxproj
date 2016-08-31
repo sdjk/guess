@@ -13,7 +13,7 @@
 		C76121EF1D74C7E80023EEB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C76121ED1D74C7E80023EEB0 /* Main.storyboard */; };
 		C76121F11D74C7E80023EEB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C76121F01D74C7E80023EEB0 /* Assets.xcassets */; };
 		C76121F41D74C7E80023EEB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C76121F21D74C7E80023EEB0 /* LaunchScreen.storyboard */; };
-		C76121FC1D7627550023EEB0 /* edifice.plist in Resources */ = {isa = PBXBuildFile; fileRef = C76121FB1D7627550023EEB0 /* edifice.plist */; };
+		C76121FE1D7760060023EEB0 /* edifice.plist in Resources */ = {isa = PBXBuildFile; fileRef = C76121FD1D7760060023EEB0 /* edifice.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		C76121F01D74C7E80023EEB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C76121F31D74C7E80023EEB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C76121F51D74C7E80023EEB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C76121FB1D7627550023EEB0 /* edifice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = edifice.plist; sourceTree = "<group>"; };
+		C76121FD1D7760060023EEB0 /* edifice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = edifice.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,6 @@
 		C76121D81D74C7E80023EEB0 = {
 			isa = PBXGroup;
 			children = (
-				C76121FB1D7627550023EEB0 /* edifice.plist */,
 				C76121E31D74C7E80023EEB0 /* 猜古建 */,
 				C76121E21D74C7E80023EEB0 /* Products */,
 			);
@@ -68,6 +67,7 @@
 				C76121ED1D74C7E80023EEB0 /* Main.storyboard */,
 				C76121F01D74C7E80023EEB0 /* Assets.xcassets */,
 				C76121F21D74C7E80023EEB0 /* LaunchScreen.storyboard */,
+				C76121FD1D7760060023EEB0 /* edifice.plist */,
 				C76121F51D74C7E80023EEB0 /* Info.plist */,
 				C76121E41D74C7E80023EEB0 /* Supporting Files */,
 			);
@@ -139,7 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C76121FC1D7627550023EEB0 /* edifice.plist in Resources */,
+				C76121FE1D7760060023EEB0 /* edifice.plist in Resources */,
 				C76121F41D74C7E80023EEB0 /* LaunchScreen.storyboard in Resources */,
 				C76121F11D74C7E80023EEB0 /* Assets.xcassets in Resources */,
 				C76121EF1D74C7E80023EEB0 /* Main.storyboard in Resources */,

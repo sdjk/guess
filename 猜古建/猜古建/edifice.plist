@@ -6,7 +6,7 @@
 		<key>answer</key>
 		<string>南禅寺大殿</string>
 		<key>icon</key>
-		<string></string>
+		<string>nanchansi</string>
 		<key>title</key>
 		<string>寺庙</string>
 		<key>options</key>
@@ -38,7 +38,7 @@
 		<key>answer</key>
 		<string>佛宫寺释迦塔</string>
 		<key>icon</key>
-		<string></string>
+		<string>shijiata</string>
 		<key>title</key>
 		<string>佛塔</string>
 		<key>options</key>
@@ -70,7 +70,7 @@
 		<key>answer</key>
 		<string>太和殿</string>
 		<key>icon</key>
-		<string></string>
+		<string>taihedian</string>
 		<key>title</key>
 		<string>宫殿</string>
 		<key>options</key>
@@ -102,7 +102,7 @@
 		<key>answer</key>
 		<string>天坛祈年殿</string>
 		<key>icon</key>
-		<string></string>
+		<string>qiniantan</string>
 		<key>title</key>
 		<string>礼制建筑</string>
 		<key>options</key>
@@ -132,17 +132,18 @@
 	</dict>
 	<dict>
 		<key>answer</key>
-		<string>山西四合院</string>
+		<string>承启楼</string>
 		<key>icon</key>
-		<string></string>
+		<string>chengqilou</string>
 		<key>title</key>
 		<string>民居</string>
 		<key>options</key>
 		<array>
 			<string>山</string>
 			<string>西</string>
-			<string>四</string>
-			<string>合</string>
+			<string>承</string>
+			<string>启</string>
+			<string>楼</string>
 			<string>院</string>
 			<string>北</string>
 			<string>京</string>
@@ -166,7 +167,7 @@
 		<key>answer</key>
 		<string>云龙桥</string>
 		<key>icon</key>
-		<string></string>
+		<string>yunlongqiao</string>
 		<key>title</key>
 		<string>桥梁</string>
 		<key>options</key>
