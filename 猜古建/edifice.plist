@@ -4,194 +4,194 @@
 <array>
 	<dict>
 		<key>answer</key>
-		<string></string>
+		<string>南禅寺大殿</string>
 		<key>icon</key>
 		<string></string>
 		<key>title</key>
-		<string></string>
+		<string>寺庙</string>
 		<key>options</key>
 		<array>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
+			<string>南</string>
+			<string>禅</string>
+			<string>寺</string>
+			<string>大</string>
+			<string>殿</string>
+			<string>佛</string>
+			<string>光</string>
+			<string>华</string>
+			<string>林</string>
+			<string>独</string>
+			<string>乐</string>
+			<string>延</string>
+			<string>庆</string>
+			<string>开</string>
+			<string>元</string>
+			<string>显</string>
+			<string>通</string>
+			<string>无</string>
+			<string>梁</string>
+			<string>摩</string>
+			<string>尼</string>
 		</array>
 	</dict>
 	<dict>
 		<key>answer</key>
-		<string></string>
+		<string>佛宫寺释迦塔</string>
 		<key>icon</key>
 		<string></string>
 		<key>title</key>
-		<string></string>
+		<string>佛塔</string>
 		<key>options</key>
 		<array>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
+			<string>佛</string>
+			<string>宫</string>
+			<string>寺</string>
+			<string>释</string>
+			<string>迦</string>
+			<string>塔</string>
+			<string>嵩</string>
+			<string>岳</string>
+			<string>院</string>
+			<string>慈</string>
+			<string>恩</string>
+			<string>大</string>
+			<string>雁</string>
+			<string>崇</string>
+			<string>圣</string>
+			<string>千</string>
+			<string>寻</string>
+			<string>妙</string>
+			<string>应</string>
+			<string>白</string>
+			<string>大</string>
 		</array>
 	</dict>
 	<dict>
 		<key>answer</key>
-		<string></string>
+		<string>太和殿</string>
 		<key>icon</key>
 		<string></string>
 		<key>title</key>
-		<string></string>
+		<string>宫殿</string>
 		<key>options</key>
 		<array>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
+			<string>太</string>
+			<string>和</string>
+			<string>中</string>
+			<string>保</string>
+			<string>慈</string>
+			<string>宁</string>
+			<string>乾</string>
+			<string>清</string>
+			<string>宫</string>
+			<string>交</string>
+			<string>泰</string>
+			<string>太</string>
+			<string>极</string>
+			<string>坤</string>
+			<string>宁</string>
+			<string>皇</string>
+			<string>英</string>
+			<string>武</string>
+			<string>文</string>
+			<string>华</string>
+			<string>庙</string>
 		</array>
 	</dict>
 	<dict>
 		<key>answer</key>
-		<string></string>
+		<string>天坛祈年殿</string>
 		<key>icon</key>
 		<string></string>
 		<key>title</key>
-		<string></string>
+		<string>礼制建筑</string>
 		<key>options</key>
 		<array>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
+			<string>天</string>
+			<string>坛</string>
+			<string>祈</string>
+			<string>年</string>
+			<string>殿</string>
+			<string>观</string>
+			<string>星</string>
+			<string>台</string>
+			<string>孔</string>
+			<string>庙</string>
+			<string>奎</string>
+			<string>文</string>
+			<string>阁</string>
+			<string>国</string>
+			<string>子</string>
+			<string>监</string>
+			<string>辟</string>
+			<string>雍</string>
+			<string>社</string>
+			<string>稷</string>
+			<string>地</string>
 		</array>
 	</dict>
 	<dict>
 		<key>answer</key>
-		<string></string>
+		<string>山西四合院</string>
 		<key>icon</key>
 		<string></string>
 		<key>title</key>
-		<string></string>
+		<string>民居</string>
 		<key>options</key>
 		<array>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
+			<string>山</string>
+			<string>西</string>
+			<string>四</string>
+			<string>合</string>
+			<string>院</string>
+			<string>北</string>
+			<string>京</string>
+			<string>皖</string>
+			<string>南</string>
+			<string>民</string>
+			<string>居</string>
+			<string>窑</string>
+			<string>洞</string>
+			<string>二</string>
+			<string>宜</string>
+			<string>楼</string>
+			<string>高</string>
+			<string>陂</string>
+			<string>大</string>
+			<string>夫</string>
+			<string>第</string>
 		</array>
 	</dict>
 	<dict>
 		<key>answer</key>
-		<string></string>
+		<string>云龙桥</string>
 		<key>icon</key>
 		<string></string>
 		<key>title</key>
-		<string></string>
+		<string>桥梁</string>
 		<key>options</key>
 		<array>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
-			<string></string>
+			<string>寿</string>
+			<string>隆</string>
+			<string>桥</string>
+			<string>赵</string>
+			<string>州</string>
+			<string>斩</string>
+			<string>龙</string>
+			<string>新</string>
+			<string>安</string>
+			<string>定</string>
+			<string>远</string>
+			<string>迴</string>
+			<string>龙</string>
+			<string>普</string>
+			<string>修</string>
+			<string>文</string>
+			<string>星</string>
+			<string>云</string>
+			<string>余</string>
+			<string>庆</string>
+			<string>会</string>
 		</array>
 	</dict>
 </array>
