@@ -8,21 +8,35 @@
 
 #import "ViewController.h"
 
+#import "XFPEdificeMode.h"
+
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *myButton;
 @property (weak, nonatomic) IBOutlet UIView *answerView;
 @property (weak, nonatomic) IBOutlet UIView *optionView;
 
-
 // 创建一个遮罩
 @property (nonatomic, strong) UIButton *cover;
 
-
+//  模型数组
+@property (nonatomic, strong) NSArray *modes;
 
 @end
 
 @implementation ViewController
+
+#pragma mark -
+#pragma mark - 模型懒加载
+- (NSArray *)modes
+{
+    if (_modes == nil)
+    {
+        _modes = [XFPEdificeMode edificeModes];
+    }
+    return _modes;
+}
+
 
 // 懒加载遮罩
 - (UIButton *)cover
@@ -55,6 +69,21 @@
     
     // 修改button中图片的填充方式
     self.myButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"edifice" ofType:@"plist"]];
+
+    NSDictionary *dict = array[0];
+    
+    NSLog(@"%@----", dict[@"icon"]);
+    
+    // 设置第一张图
+    XFPEdificeMode *mode = self.modes[0];
+    
+    // 要设置某种状态下的图片
+
+    [self.myButton setImage:[UIImage imageNamed:@"nanchansi"] forState:UIControlStateNormal];
+    
+    NSLog(@"－－－－%@",mode.icon);
     
     //  取消button高亮
     self.myButton.adjustsImageWhenHighlighted = NO;
