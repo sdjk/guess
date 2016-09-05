@@ -22,6 +22,9 @@
 //  模型数组
 @property (nonatomic, strong) NSArray *modes;
 
+// 创建一个数组索引
+@property (nonatomic, assign) NSInteger index;
+
 @end
 
 @implementation ViewController
@@ -70,35 +73,40 @@
     // 修改button中图片的填充方式
     self.myButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     
-    NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"edifice" ofType:@"plist"]];
-
-    NSDictionary *dict = array[0];
+//    NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"edifice" ofType:@"plist"]];
+//
+//    NSDictionary *dict = array[0];
+//    
+//    NSLog(@"%@----", dict[@"icon"]);
     
-    NSLog(@"%@----", dict[@"icon"]);
-    
-    // 设置第一张图
-    XFPEdificeMode *mode = self.modes[0];
-    
-    // 要设置某种状态下的图片
-
-    [self.myButton setImage:[UIImage imageNamed:@"nanchansi"] forState:UIControlStateNormal];
-    
-    NSLog(@"－－－－%@",mode.icon);
+//    // 设置第一张图
+//    XFPEdificeMode *mode = self.modes[0];
+//    
+//    // 要设置某种状态下的图片
+//
+//    [self.myButton setImage:[UIImage imageNamed:@"nanchansi"] forState:UIControlStateNormal];
+//    
+//    NSLog(@"－－－－%@",mode.icon);
     
     //  取消button高亮
     self.myButton.adjustsImageWhenHighlighted = NO;
     
-    NSLog(@"%@",self.myButton);
     
-    [self createAnswerButton];
+    self.index = -1;
     
-    [self createOptionButton];
+    [self nexTitle];
+    
+    
+//    NSLog(@"%@",self.myButton);
+//    
+//    [self createAnswerButton];
+//    
+//    [self createOptionButton];
    
 }
 
 
-
-
+// 图片的缩放
 - (IBAction)scaleButton:(UIButton *)sender
 {
         NSLog(@"%s", __func__);
@@ -142,10 +150,56 @@
     
 }
 
-// 创建答案区按钮,测试
--(void) createAnswerButton
+//  下一题
+/*
+ 需要修改主视窗图片
+ 设置备选文字
+ 答题区框架
+ */
+- (IBAction)nexTitle
 {
-    for (int i = 0 ; i < 3; i++)
+    NSLog(@"%ld %lu", (long)self.index, (unsigned long)self.modes.count);
+    
+    self.index++;
+    // 负数不能做判断
+    if (self.index < self.modes.count)
+    {
+        
+        XFPEdificeMode *mode = self.modes[self.index];
+        
+        //  设置主视图图片
+        [self.myButton setImage:[UIImage imageNamed:mode.icon] forState:UIControlStateNormal];
+        
+        // 设置答案区框架
+        [self createAnswerButtonAndMode:mode];
+        
+        // 设置备选区
+        [self createOptionButtonAndMode:mode];
+        
+    }
+    else
+    {
+        NSLog(@"遍历完成");
+    }
+    
+}
+
+
+
+// 创建答案区按钮,测试
+-(void) createAnswerButtonAndMode:(XFPEdificeMode *)mode;
+{
+    
+    // 移除视图
+    for (UIButton *but in self.answerView.subviews)
+    {
+        [but removeFromSuperview];
+    }
+    
+    
+    NSUInteger length = mode.answer.length;
+    
+    for (int i = 0 ; i < length; i++)
     {
         // 创建UIButton
         UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -162,10 +216,14 @@
         CGFloat width = self.answerView.frame.size.height;
         
         // 设置每个button的边距
-        CGFloat margin = (self.answerView.frame.size.width - 150 - 3 * width) / (3 - 1);
+//        CGFloat margin = (self.answerView.frame.size.width - 150 - length * width) / (length - 1);
+        
+        //  设置边距为20
+        CGFloat margin = 20;
+        
         
         // 要设置X值，设置两边的间距分别为50
-        CGFloat x = 75 + i * (margin + width);
+        CGFloat x = (self.answerView.frame.size.width - length * width - (length - 1) * margin) * 0.5 + i * (margin + width);
         
         but.frame = CGRectMake(x, 0, width, width);
         
@@ -175,10 +233,10 @@
 }
 
 // 创建被选区
-- (void) createOptionButton
+- (void) createOptionButtonAndMode:(XFPEdificeMode *)mode;
 {
     // 也使用for循环，进行九宫格布局，3行7列，一起21个选项
-    for (int i = 0; i < 21; i ++)
+    for (int i = 0; i < mode.options.count; i ++)
     {
         //  用模取列，可以求x值
         int column = i % 7;
@@ -206,9 +264,15 @@
         
         but.frame = CGRectMake(x, y, width, width);
         
+        // 设置文字
+        
+        [but setTitle:mode.options[i] forState:UIControlStateNormal];
+        
+        //  设置文字颜色
+        [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
         [self.optionView addSubview:but];
-        
-        
+ 
     }
     
 }
