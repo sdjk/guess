@@ -193,8 +193,6 @@
         // 宽度要等于高度
         CGFloat width = self.answerView.frame.size.height;
         
-        // 设置每个button的边距
-//        CGFloat margin = (self.answerView.frame.size.width - 150 - length * width) / (length - 1);
         
         //  设置边距为20
         CGFloat margin = 20;
@@ -297,7 +295,7 @@
     // 寻找答案区第一个为空的button
     UIButton *btn = [self firstAnswerButton];
     
-    // 如果没有找到btn之间返回
+    // 如果没有找到btn就直接返回
     if (btn == nil) return;
     
     // 把文字设置上去
@@ -306,7 +304,73 @@
     // 设置按钮隐藏
     button.hidden = YES;
     
+    // 进行判断
+    [self judge];
+    
 }
+
+#pragma mark -
+#pragma mark - 判断答案
+- (void)judge
+{
+    // 创建一个bool判断是否全部填充
+    BOOL isFull = YES;
+    
+    // 创建一个可变字符串 储存数据
+    NSMutableString *strM = [NSMutableString string];
+    
+    
+    for (UIButton *but in self.answerView.subviews)
+    {
+        if (but.currentTitle.length == 0)
+        {
+            isFull = NO;
+            
+            // 跳出循环
+            break;
+        }
+        else
+        {
+            // 拼接字符串
+            [strM appendString:but.currentTitle];
+        }
+    }
+    if (isFull)
+    {
+        
+        // 获取模型
+        
+        XFPEdificeMode *mode = self.modes[self.index];
+        
+        // 如果正确
+        if ([strM isEqualToString:mode.answer])
+        {
+            // 改变字体颜色
+            [self setTitleColor:[UIColor blueColor]];
+            
+            // 延时0.5s执行进入下一题
+            [self performSelector:@selector(nexTitle) withObject:nil afterDelay:0.5];
+        }
+        else
+        {
+            // 改变字体颜色
+            [self setTitleColor:[UIColor redColor]];
+        }
+    }
+    
+}
+#pragma mark -
+#pragma mark - 提取修改答案区字体颜色方法
+- (void)setTitleColor:(UIColor *)color
+{
+    // 改变字体颜色
+    for (UIButton *btn in self.answerView.subviews)
+    {
+        [btn setTitleColor:color forState:UIControlStateNormal];
+    }
+}
+
+
 
 #pragma mark -
 #pragma mark - 答案区的点击事件
