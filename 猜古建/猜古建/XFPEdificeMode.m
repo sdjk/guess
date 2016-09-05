@@ -10,11 +10,33 @@
 
 @implementation XFPEdificeMode
 
+// 打乱顺序
+- (void)randomOptions
+{
+    self.options = [self.options sortedArrayUsingComparator:^NSComparisonResult(NSString *str1, NSString *str2)
+    {
+        int seed = arc4random_uniform(2);
+        if (seed)
+        {
+            return [str1 compare:str2];
+        }
+        else
+        {
+            return [str2 compare:str1];
+        }
+        
+    }];
+}
+
+
 - (instancetype)initWithDictionary:(NSDictionary *)dict
 {
     self = [super init];
     if (self) {
         [self setValuesForKeysWithDictionary:dict];
+        
+        // 进行乱序
+        [self randomOptions];
     }
     return self;
 }

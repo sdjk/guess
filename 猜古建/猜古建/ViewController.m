@@ -72,36 +72,14 @@
     
     // 修改button中图片的填充方式
     self.myButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    
-//    NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"edifice" ofType:@"plist"]];
-//
-//    NSDictionary *dict = array[0];
-//    
-//    NSLog(@"%@----", dict[@"icon"]);
-    
-//    // 设置第一张图
-//    XFPEdificeMode *mode = self.modes[0];
-//    
-//    // 要设置某种状态下的图片
-//
-//    [self.myButton setImage:[UIImage imageNamed:@"nanchansi"] forState:UIControlStateNormal];
-//    
-//    NSLog(@"－－－－%@",mode.icon);
-    
+
     //  取消button高亮
     self.myButton.adjustsImageWhenHighlighted = NO;
     
-    
     self.index = -1;
     
+    // 调用下一张方法
     [self nexTitle];
-    
-    
-//    NSLog(@"%@",self.myButton);
-//    
-//    [self createAnswerButton];
-//    
-//    [self createOptionButton];
    
 }
 
@@ -227,6 +205,12 @@
         
         but.frame = CGRectMake(x, 0, width, width);
         
+        // 设置文字颜色
+        [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
+        // 监听点点击事件
+        [but addTarget:self action:@selector(answerClick:) forControlEvents:UIControlEventTouchUpInside];
+        
         [self.answerView addSubview:but];
         
     }
@@ -235,47 +219,132 @@
 // 创建被选区
 - (void) createOptionButtonAndMode:(XFPEdificeMode *)mode;
 {
-    // 也使用for循环，进行九宫格布局，3行7列，一起21个选项
-    for (int i = 0; i < mode.options.count; i ++)
+    if (self.optionView.subviews.count != mode.options.count)
     {
-        //  用模取列，可以求x值
-        int column = i % 7;
-        
-        // 用除取行，可以求y值
-        int row = i / 7;
-        
-        //  设置间距
-        CGFloat margin = 10;
-        
-        UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        [but setBackgroundImage:[UIImage imageNamed:@"btn_option"] forState:UIControlStateNormal];
-        
-        [but setBackgroundImage:[UIImage imageNamed:@"btn_option_highlighted"] forState:UIControlStateHighlighted];
-        
-        CGFloat width = (self.optionView.frame.size.width - 8 * margin) / 7;
-        
-        CGFloat yMargin = (self.optionView.frame.size.height - 3 * width - 2 * margin) * 0.5;
-        
-        
-        CGFloat x = margin + column * (margin + width);
-        
-        CGFloat y = yMargin + row * (margin + width);
-        
-        but.frame = CGRectMake(x, y, width, width);
-        
-        // 设置文字
-        
-        [but setTitle:mode.options[i] forState:UIControlStateNormal];
-        
-        //  设置文字颜色
-        [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
-        [self.optionView addSubview:but];
- 
+        // 也使用for循环，进行九宫格布局，3行7列，一起21个选项
+        for (int i = 0; i < mode.options.count; i ++)
+        {
+            //  用模取列，可以求x值
+            int column = i % 7;
+            
+            // 用除取行，可以求y值
+            int row = i / 7;
+            
+            //  设置间距
+            CGFloat margin = 10;
+            
+            UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+            
+            [but setBackgroundImage:[UIImage imageNamed:@"btn_option"] forState:UIControlStateNormal];
+            
+            [but setBackgroundImage:[UIImage imageNamed:@"btn_option_highlighted"] forState:UIControlStateHighlighted];
+            
+            CGFloat width = (self.optionView.frame.size.width - 8 * margin) / 7;
+            
+            CGFloat yMargin = (self.optionView.frame.size.height - 3 * width - 2 * margin) * 0.5;
+            
+            
+            CGFloat x = margin + column * (margin + width);
+            
+            CGFloat y = yMargin + row * (margin + width);
+            
+            but.frame = CGRectMake(x, y, width, width);
+            
+            //  设置文字颜色
+            [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            
+            
+            // 设置监听
+            [but addTarget:self action:@selector(optionClick:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [self.optionView addSubview:but];
+            
+        }
     }
+    int i = 0;
+    //  设置文字
+        for (UIButton *but in self.optionView.subviews)
+        {
+            [but setTitle:mode.options[i++] forState:UIControlStateNormal];
+            
+            // 现实按钮
+            but.hidden = NO;
+        }
     
 }
+
+#pragma mark -
+#pragma mark - 寻找答案区第一个为空的button
+- (UIButton *)firstAnswerButton
+{
+    for (UIButton *btn in self.answerView.subviews)
+    {
+        // 如果没有字就返回这个btn
+        if (btn.currentTitle.length == 0)
+        {
+            return btn;
+        }
+    }
+    return nil;
+}
+
+
+
+#pragma mark -
+#pragma mark - 备选区答案点击事件
+- (void)optionClick:(UIButton *)button
+{
+    // 寻找答案区第一个为空的button
+    UIButton *btn = [self firstAnswerButton];
+    
+    // 如果没有找到btn之间返回
+    if (btn == nil) return;
+    
+    // 把文字设置上去
+    [btn  setTitle:button.currentTitle forState:UIControlStateNormal];
+    
+    // 设置按钮隐藏
+    button.hidden = YES;
+    
+}
+
+#pragma mark -
+#pragma mark - 答案区的点击事件
+- (void)answerClick:(UIButton *)button
+{
+    if (button.currentTitle.length == 0)
+    {
+        return;
+    }
+    
+    // 把文字移到备选区
+    
+    // 查找到对应的隐藏按钮
+    UIButton *btn = [self optionButtonWithTilte:button.currentTitle isHidden:YES];
+    
+    // 显示按钮
+    btn.hidden = NO;
+    
+    // 要移除文字
+    [button setTitle:@"" forState:UIControlStateNormal];
+    
+    
+}
+
+#pragma mark -
+#pragma mark - 在答题区查找对应按钮
+- (UIButton *)optionButtonWithTilte:(NSString *)title isHidden:(BOOL)isHidden
+{
+    for (UIButton *btn in self.optionView.subviews)
+    {
+        if ([btn.currentTitle isEqualToString:title] && btn.hidden == isHidden)
+        {
+            return btn;
+        }
+    }
+    return nil;
+}
+
 
 
 - (void)didReceiveMemoryWarning {
